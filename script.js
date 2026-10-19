@@ -58,7 +58,7 @@ function showDetail(detailId, clickedHotspot) {
    POSE FLOATING DRIFT (22 ẢNH)
 ══════════════════════════════════════════════ */
 // Tự động sinh mảng 22 ảnh từ 1.png -> 22.png
-const poseImages = Array.from({ length: 22 }, (_, index) => `/src/pose/${index + 1}.png`);
+const poseImages = Array.from({ length: 22 }, (_, index) => `src/pose/${index + 1}.png`);
 
 // Xáo trộn mảng (Fisher-Yates shuffle)
 function shuffle(arr) {
