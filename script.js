@@ -1,19 +1,19 @@
 // Ảnh tương ứng với từng hotspot (3 ảnh, chiều cao khác nhau)
 const galleryImages = {
     'detail-1': [
-        '../src/eyes2.png',
-        '../src/eyes1.png',
-        '../src/eyes3.png'
+        '/src/eyes2.png',
+        '/src/eyes1.png',
+        '/src/eyes3.png'
     ],
     'detail-2': [
-        '../src/smile5.png',
-        '../src/smile4.png',
-        '../src/smile6.png'
+        '/src/smile5.png',
+        '/src/smile4.png',
+        '/src/smile6.png'
     ],
     'detail-3': [
-        '../src/hair2.png',
-        '../src/hair1.png',
-        '../src/hair3.png'
+        '/src/hair2.png',
+        '/src/hair1.png',
+        '/src/hair3.png'
     ]
 };
 
@@ -58,7 +58,7 @@ function showDetail(detailId, clickedHotspot) {
    POSE FLOATING DRIFT (22 ẢNH)
 ══════════════════════════════════════════════ */
 // Tự động sinh mảng 22 ảnh từ 1.png -> 22.png
-const poseImages = Array.from({ length: 22 }, (_, index) => `../src/pose/${index + 1}.png`);
+const poseImages = Array.from({ length: 22 }, (_, index) => `/src/pose/${index + 1}.png`);
 
 // Xáo trộn mảng (Fisher-Yates shuffle)
 function shuffle(arr) {
