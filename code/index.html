@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSE - Dành tặng vợ iu Ly Naaaa</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap"
+        rel="stylesheet">
+    <!-- Cùng thư mục code nên gọi trực tiếp style.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="magazine-header">
+        <h1>LY NA</h1>
+        <p>Chúc mừng ngày Phụ nữ Việt Nam - Em bé yêu của anh</p>
+    </div>
+
+    <div class="container">
+        <div class="anatomy-section">
+            <!-- Cột trái: Ảnh và các điểm bấm -->
+            <div class="anatomy-image">
+                <!-- Lùi ra ngoài thư mục code để vào thư mục src -->
+                <img src="../src/image.png" alt="Nàng thơ">
+
+                <div class="hotspot active" id="spot-1" onclick="showDetail('detail-1', this)">1</div>
+                <div class="hotspot" id="spot-2" onclick="showDetail('detail-2', this)">2</div>
+                <div class="hotspot" id="spot-3" onclick="showDetail('detail-3', this)">3</div>
+            </div>
+
+            <!-- Cột phải: Nội dung giải phẫu -->
+            <div class="anatomy-content">
+
+                <!-- Popup 3 ảnh hiện phía trên tiêu đề khi bấm số -->
+                <div id="popup-gallery" class="popup-gallery" style="display:none;">
+                    <img id="popup-img-1" class="pop-img pop-img--sm" src="" alt="">
+                    <img id="popup-img-2" class="pop-img pop-img--lg" src="" alt="">
+                    <img id="popup-img-3" class="pop-img pop-img--md" src="" alt="">
+                </div>
+
+                <h2>Giải phẫu<br>một nàng thơ</h2>
+                <p class="subtitle">Một nghiên cứu vội vã và inspired bởi cí post bé cưng gửi bên Threads city ehheh.
+                </p>
+
+                <!-- Chi tiết 1 -->
+                <div id="detail-1" class="detail-card active">
+                    <h3>01. Đôi mắt</h3>
+                    <p>Mắt cưng của anh, đôi mắt xinh làm anh bị choáng ngợp, anh yêu đôi mắt tròn xinh của em, dù có
+                        lúc nó phải rơi lệ, hay lúc nó được cười tít mắt, anh vẫn luôn yêu đôi mắt ấy.</p>
+                </div>
+
+                <!-- Chi tiết 2 -->
+                <div id="detail-2" class="detail-card">
+                    <h3>02. Nụ cười</h3>
+                    <p>Rạng ngời, nụ cười từ đôi môi xinh của bé cưng, anh thích nó, anh yêu nó, nên em bé hãy luôn cười
+                        lên nhé.</p>
+                </div>
+
+                <!-- Chi tiết 3 -->
+                <div id="detail-3" class="detail-card">
+                    <h3>03. Mái tóc xoăn</h3>
+                    <p>Mái tóc ấy, dù có lúc iu lỡ cắt cí mái hơi ngắn heheheh, hay có lúc nó xù bông lun, thì nó vẫn
+                        siu thơm, siu đẹp, anh thích tóc em bé lắm íiiiii.</p>
+                </div>
+
+                <br>
+                <span class="instruction">↑ Bấm vào các số trên ảnh</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION: Vài pose anh iu thích của babiii     -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section class="pose-section">
+        <div class="container">
+            <div class="pose-heading">
+                <h2>Random photo của em bé iuuu<br><em>I really love themmm</em></h2>
+                <p class="pose-sub">Dễ thương lắm iu uiiii, mãi vui tươi như z náaaaa</p>
+            </div>
+        </div>
+
+        <!-- Vùng ảnh trôi nổi — full-width -->
+        <div class="pose-float-area" id="pose-float-area">
+            <!-- JS sẽ inject ảnh vào đây -->
+        </div>
+    </section>
+
+    <!-- Lightbox overlay -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-frame" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="">
+            <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+        </div>
+    </div>
+
+    <!-- Cùng thư mục code nên gọi trực tiếp script.js -->
+    <script src="script.js"></script>
+</body>
+
+</html>

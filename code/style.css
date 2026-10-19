@@ -1,0 +1,489 @@
+:root {
+    --bg-color: #fcfbf9;
+    --text-color: #2c2c2c;
+    --accent-color: #8c7b6d;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.serif {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Header Tạp chí */
+.magazine-header {
+    text-align: center;
+    padding: 40px 20px 20px;
+    border-bottom: 1px solid #ddd;
+    width: 90%;
+    margin: 0 auto 50px;
+}
+
+.magazine-header h1 {
+    font-size: 8vw;
+    margin: 0;
+    letter-spacing: 5px;
+    color: #3a2e2b;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.magazine-header p {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Container chính */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Section: Giải phẫu nàng thơ */
+.anatomy-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.anatomy-image {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
+
+.anatomy-image img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Các điểm tương tác (Hotspots) */
+.hotspot {
+    position: absolute;
+    width: 26px;
+    /* Giảm nhẹ kích thước để thanh thoát hơn */
+    height: 26px;
+    background: rgba(234, 231, 231, 0.174);
+    /* Giảm alpha xuống 0.35 để trong suốt nhìn xuyên qua */
+    color: rgba(0, 0, 0, 0.336);
+    /* Chữ hơi mờ nhẹ */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Viền mảnh kính mờ */
+    backdrop-filter: blur(4px);
+    /* Làm mờ nhẹ nền phía sau nút */
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Khi rê chuột vào hoặc đang chọn điểm đó thì mới sáng rõ lên */
+.hotspot:hover,
+.hotspot.active {
+    background: rgba(58, 46, 43, 0.85);
+    /* Tông nâu vintage sang xịn */
+    color: #ffffff;
+    border-color: transparent;
+    transform: scale(1.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Chỉnh tọa độ các điểm */
+#spot-1 {
+    top: 15%;
+    left: 35%;
+}
+
+/* Mắt */
+#spot-2 {
+    top: 60%;
+    left: 45%;
+}
+
+/* Môi */
+#spot-3 {
+    top: 80%;
+    left: 70%;
+}
+
+/* Tóc */
+
+.anatomy-content {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+}
+
+.anatomy-content h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #3a2e2b;
+}
+
+.anatomy-content p.subtitle {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 40px;
+    font-family: 'Playfair Display', serif;
+}
+
+.detail-card {
+    display: none;
+    padding-left: 20px;
+    border-left: 2px solid var(--accent-color);
+    animation: fadeIn 0.5s ease;
+}
+
+.detail-card.active {
+    display: block;
+}
+
+.detail-card h3 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.detail-card p {
+    line-height: 1.8;
+    color: #555;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hướng dẫn nhấp chuột */
+.instruction {
+    font-size: 14px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ── Popup Gallery (3 ảnh phía trên Giải phẫu) ── */
+.popup-gallery {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    margin-bottom: 22px;
+    overflow: hidden;
+}
+
+.pop-img {
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.13);
+    flex: 1;
+    /* dàn đều chiếm hết chiều ngang */
+    min-width: 0;
+    /* không co giãn tự do */
+    animation: popIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Stagger delay để từng ảnh xuất hiện lần lượt */
+.pop-img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.pop-img:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+.pop-img:nth-child(3) {
+    animation-delay: 0.16s;
+}
+
+/* Chiều cao VÀ rộng cố định — không phụ thuộc ảnh gốc */
+.pop-img--sm {
+    width: 90px;
+    height: 120px;
+}
+
+.pop-img--md {
+    width: 90px;
+    height: 165px;
+}
+
+.pop-img--lg {
+    width: 90px;
+    height: 215px;
+}
+
+/* Chiều cao khác nhau cho 3 ảnh */
+.pop-img--sm {
+    height: 120px;
+}
+
+.pop-img--md {
+    height: 165px;
+}
+
+.pop-img--lg {
+    height: 215px;
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ── Float Area (vùng ảnh trôi nổi) ── */
+.pose-float-area {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    /* Fade 4 cạnh: kết hợp cả chiều ngang và chiều dọc */
+    -webkit-mask-image:
+        linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image:
+        linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+}
+
+/* ── Mỗi ảnh pose ── */
+.pose-item {
+    position: absolute;
+    cursor: pointer;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+    transition: box-shadow 0.3s ease;
+    /* Flicker chậm — duration/delay set bằng JS */
+    animation: flicker 5s ease-in-out infinite alternate;
+    /* transform được JS cập nhật liên tục qua RAF */
+    will-change: transform;
+}
+
+.pose-item:hover {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+    animation-play-state: paused;
+    opacity: 1 !important;
+    z-index: 10;
+}
+
+.pose-item img {
+    display: block;
+    max-height: 220px;
+    max-width: 220px;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 1;
+    }
+
+    35% {
+        opacity: 1;
+    }
+
+    45% {
+        opacity: 0.2;
+    }
+
+    55% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    93% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════
+   AUTHENTIC VINTAGE EDITORIAL LIGHTBOX (KHUNG GỖ & GÓC ĐỒNG)
+══════════════════════════════════════════════════════════ */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, rgba(30, 24, 20, 0.85) 0%, rgba(12, 10, 8, 0.95) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Khung gỗ gụ / sồi cổ điển nhiều lớp phào chỉ */
+.lightbox-frame {
+    position: relative;
+    max-width: 86vw;
+    max-height: 86vh;
+    /* Giấy mỹ thuật ngả màu ố thời gian */
+    background: #f4eee2;
+    background-image: radial-gradient(#dfd4be 1px, transparent 1px);
+    background-size: 16px 16px;
+
+    padding: 24px 24px 60px 24px;
+    /* Chân dưới chừa khoảng rộng kiểu ảnh rửa phòng tối */
+    border-radius: 4px;
+
+    /* Phào chỉ gỗ cổ điển: Viền gỗ đậm + nẹp đồng mạ cổ */
+    border: 9px solid #3d2b1f;
+    /* Viền gỗ đậm */
+    outline: 2px solid #b89758;
+    /* Nẹp chỉ kim loại đồng */
+    outline-offset: -5px;
+
+    box-shadow:
+        0 0 0 1px #1a120c,
+        0 30px 80px rgba(0, 0, 0, 0.85),
+        inset 0 0 40px rgba(110, 80, 50, 0.18);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.9) translateY(25px) rotate(-0.5deg);
+    /* Hơi nghiêng nhẹ 0.5 độ cực vintage */
+    transition: transform 0.45s cubic-bezier(0.18, 1, 0.32, 1);
+}
+
+.lightbox.active .lightbox-frame {
+    transform: scale(1) translateY(0) rotate(0deg);
+}
+
+/* 4 góc kẹp ảnh bằng đồng cổ điển (Photo Corners) */
+.lightbox-frame::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 56px;
+    pointer-events: none;
+    /* Vẽ 4 góc đồng cổ điển bằng gradient */
+    background:
+        linear-gradient(135deg, #a67c38 12px, transparent 13px) top left,
+        linear-gradient(225deg, #a67c38 12px, transparent 13px) top right,
+        linear-gradient(45deg, #a67c38 12px, transparent 13px) bottom left,
+        linear-gradient(315deg, #a67c38 12px, transparent 13px) bottom right;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    z-index: 5;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+}
+
+/* Tấm ảnh rửa phim */
+#lightbox-img {
+    max-width: 76vw;
+    max-height: 64vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 1px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    /* Giảm tương phản gắt một chút để hòa màu phim vintage */
+    filter: sepia(0.06) contrast(1.02);
+}
+
+/* Dòng ghi chú mực máy đánh chữ cổ dưới chân ảnh */
+.lightbox-frame::after {
+    content: "MY BABY, LYNA IU CUA ANH";
+    position: absolute;
+    bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: #6d5b4b;
+    font-weight: 600;
+    opacity: 0.85;
+    border-top: 1px dashed rgba(109, 91, 75, 0.4);
+    padding-top: 8px;
+    width: calc(100% - 48px);
+    text-align: center;
+}
+
+/* Nút tắt chạm khắc đồng cổ */
+.lightbox-close {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #2b1d14;
+    color: #e5c17b;
+    border: 2px solid #b89758;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+    z-index: 20;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.15) rotate(90deg);
+    background: #4a1515;
+    color: #fff;
+    border-color: #ff9999;
+}
